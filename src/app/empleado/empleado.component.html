@@ -1,4 +1,30 @@
-<h2 style="text-align: center;">Empleado Individual de la Empresa</h2>
+<h2 style="text-align: center;">Empleado Individual de la Empresa con los siguientes datos:</h2>
+<p>Nombre del empleado: {{nombre.value}}</p>
+<p>Apellido del empleado: {{apellido}}</p>
+<p>Edad del empleado: {{(getEdad()+10)>=28?"Eres mayor de edad":"Eres menor de edad"}}</p>
+<label>Empresa
+    <input #empresa (keyup)="0" [disabled]="habilitacionCuadro">
+</label>
+<br/>
+<br/>
+<label>Usuario
+    <input #nombre (keyup)="0" (blur)="getLogueado(nombre.value)">
+</label>
+<br/>
+   <!-- <input type="button"  value="Enviar" (click)="llamaEmpresa(empresa.value)">-->
+
+<p>Empresa del empleado: {{empresa.value}}</p>
+
+Registrado:<input type="checkbox" id="registro" [checked]="logueado"/>
+<!--{{getLogueado()}}-->
+<br/>
+{{textoRegistro}}
+<br/>
+<br/>
+Género:{{textoGenero}}
+<br/>
+Masculino: <input type="radio" id="genero" name="genero" [checked]="checkGenero"/>
+Femenino: <input type="radio" id="genero" name="genero" />
 <app-subalterno></app-subalterno>
 <app-subalterno></app-subalterno>
 <span>Es un único empleado</span>
