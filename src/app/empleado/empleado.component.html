@@ -3,7 +3,13 @@
 <p>Apellido del empleado: {{apellido}}</p>
 <p>Edad del empleado: {{(getEdad()+10)>=28?"Eres mayor de edad":"Eres menor de edad"}}</p>
 <label>Empresa
-    <input #empresa (keyup)="0" [disabled]="habilitacionCuadro">
+    <input #empresa (keyup)="0" [disabled]="habilitacionCuadro"/>
+</label>
+<br/>
+<br/>
+<label>Apellido
+   <!-- <input (input)="setApellido($event)"/>-->
+   <input [(ngModel)]="apellido"/>
 </label>
 <br/>
 <br/>
@@ -23,8 +29,12 @@ Registrado:<input type="checkbox" id="registro" [checked]="logueado"/>
 <br/>
 Género:{{textoGenero}}
 <br/>
-Masculino: <input type="radio" id="genero" name="genero" [checked]="checkGenero"/>
-Femenino: <input type="radio" id="genero" name="genero" />
+Masculino: <input type="radio" #genero name="genero" value="Masculino" [disabled]="deshabilitado" [checked]="checkMasculino" (mouseover)="setUsuario($event)" (mouseout)="unsetUsuario($event)"/>
+Femenino: <input type="radio"  name="genero" value="Femenino" [disabled]="deshabilitado"  [checked]="checkFemenino" (mouseover)="setUsuario($event)" (mouseout)="unsetUsuario($event)"/>
+Undefined: <input type="radio"  name="genero" value="Undefined" [disabled]="deshabilitado" [checked]="checkUndefined" (mouseover)="setUsuario($event)" (mouseout)="unsetUsuario($event)"/>
+<br/>
+<br/>
+Texto set usuario:{{textoSetUsuario}}
 <app-subalterno></app-subalterno>
 <app-subalterno></app-subalterno>
 <span>Es un único empleado</span>
